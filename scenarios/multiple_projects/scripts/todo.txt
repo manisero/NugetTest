@@ -1,0 +1,27 @@
+publish_new_major.ps1
+	- run utils.ps1/read_current_version
+	- increment major segment
+	- run publish_version.ps1
+
+publish_new_minor.ps1
+	- run utils.ps1/read_current_version
+	- increment minor segment
+	- run publish_version.ps1
+
+publish_new_patch.ps1
+	- run utils.ps1/read_current_version
+	- increment patch segment
+	- run publish_version.ps1
+
+publish_version.ps1
+	- run utils.ps1/set_package_version
+	- run nuget_pack.bat
+
+
+util.ps1
+	get_package_version:
+		- read current package version from sln's nuspec file
+		- parse it's segments
+		- return parsed result
+	set_package_version:
+		- update package version in sln's nuspec file
