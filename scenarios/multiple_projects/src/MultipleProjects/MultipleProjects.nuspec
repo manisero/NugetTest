@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>MultipleProjects</id>
-    <version>1.0.0</version>
+    <version>$version$</version>
     <title>MultipleProjects</title>
     <authors>manisero</authors>
     <owners>manisero</owners>
@@ -11,6 +11,6 @@
     <copyright>Copyright 2015</copyright>
   </metadata>
   <files>
-    <file src="*\bin\$Configuration$\*.dll" target="lib\net45" />
+    <file src="*\bin\$Configuration$\*.*" target="lib\net45" />
   </files>
 </package>
