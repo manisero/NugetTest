@@ -1,4 +1,11 @@
-﻿function Get-PackageVersion($NuspecPath)
+﻿function Get-PackageID($NuspecPath)
+{
+    $nuspec = [xml](Get-Content $NuspecPath)
+
+    return $nuspec.package.metadata.id
+}
+
+function Get-PackageVersion($NuspecPath)
 {
     $nuspec = [xml](Get-Content $NuspecPath)
 
