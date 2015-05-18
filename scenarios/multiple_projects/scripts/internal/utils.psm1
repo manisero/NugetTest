@@ -24,3 +24,8 @@ function Set-PackageVersion($NuspecPath, $Version)
     $nuspec.package.metadata.version = $Version
     $nuspec.Save($NuspecPath)
 }
+
+function Format-Version($VersionObject)
+{
+    return "{0}.{1}.{2}" -f $VersionObject.Major, $VersionObject.Minor, $VersionObject.Patch
+}
