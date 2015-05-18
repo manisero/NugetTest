@@ -9,7 +9,12 @@ function Get-PackageVersion($NuspecPath)
 {
     $nuspec = [xml](Get-Content $NuspecPath)
 
-    return $nuspec.package.metadata.version
+    $versionSegments = $nuspec.package.metadata.version.Split('.')
+    $major = [int]::Parse($versionSegments[0])
+    $minor = [int]::Parse($versionSegments[1])
+    $patch = [int]::Parse($versionSegments[2])
+
+    return New-Object PSObject -Property @{ Major=$major; Minor=$minor; Patch=$patch }
 }
 
 function Set-PackageVersion($NuspecPath, $Version)
