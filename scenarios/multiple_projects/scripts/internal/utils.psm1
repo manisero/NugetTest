@@ -25,7 +25,7 @@ function Set-PackageVersion($NuspecPath, $Version)
     $nuspec.Save($NuspecPath)
 }
 
-function Format-Version($VersionObject)
+function Format-Version($Major, $Minor, $Patch)
 {
-    return "{0}.{1}.{2}" -f $VersionObject.Major, $VersionObject.Minor, $VersionObject.Patch
+    return "{0}.{1}.{2}" -f $Major, $Minor, $Patch
 }
