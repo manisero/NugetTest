@@ -1,5 +1,5 @@
 param(
-    [switch]$KeepNuspec
+    [switch]$KeepNupkg
 )
 
 Import-Module .\constants.psm1
@@ -10,4 +10,4 @@ $Global:ErrorActionPreference = "Stop"
 $currentVersion = Get-PackageVersion -NuspecPath $NuspecPath
 $newVersion = Format-Version -Major $currentVersion.Major -Minor ($currentVersion.Minor + 1) -Patch 0
 
-.\publish_version.ps1 -Version $newVersion -KeepNuspec:$KeepNuspec.IsPresent
+.\publish_version.ps1 -Version $newVersion -KeepNupkg:$KeepNupkg.IsPresent
